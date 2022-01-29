@@ -3,9 +3,13 @@ const baril8 = document.getElementById("baril8")
 const baril5 = document.getElementById("baril5")
 const baril3 = document.getElementById("baril3")
 
-const baril8Data = {value: 8, capacity: 8, name: "baril8"}
-const baril5Data = {value: 0, capacity: 5, name: "baril5"}
-const baril3Data = {value: 0, capacity: 3, name: "baril3"}
+const titlebaril8 = document.getElementById("valeur8")
+const titlebaril5 = document.getElementById("valeur5")
+const titlebaril3 = document.getElementById("valeur3")
+
+const baril8Data = { value: 8, capacity: 8, name: "baril8" }
+const baril5Data = { value: 0, capacity: 5, name: "baril5" }
+const baril3Data = { value: 0, capacity: 3, name: "baril3" }
 
 baril8.addEventListener('click', setStorage)
 baril5.addEventListener('click', setStorage)
@@ -13,38 +17,52 @@ baril3.addEventListener('click', setStorage)
 
 
 
+function jeugagne() {
+
+ if (baril8Data.value == 4 && baril5Data.value == 4) {
+   
+    alert("bravo, vous avez réussi")
+    
+ }
+}
+
 
 
 function setStorage(e) {
-
-    switch (e.target.id) {
-        case"baril8" : 
-        checkandSet(baril8Data)
-        calculate(baril8Data)
-        break;
-        case"baril5" : 
-        checkandSet(baril5Data)
-        calculate(baril5Data)
-        break;
-        case"baril3" : 
-        checkandSet(baril3Data)
-        calculate(baril3Data)
-        break;
-    }
  
-    
-  }
+    switch (e.target.id) {
+        case "baril8":
+            checkandSet(baril8Data)
+
+            calculate(baril8Data)
+            jeugagne()
+            break;
+        case "baril5":
+            checkandSet(baril5Data)
+
+            calculate(baril5Data)
+            jeugagne()
+            break;
+        case "baril3":
+            checkandSet(baril3Data)
+
+            calculate(baril3Data)
+            jeugagne()
+            break;
+    }
 
 
+}
 
-
-
-  function checkandSet(barilobj) {
-      if(!localStorage.getItem("clicked2") && localStorage.getItem("clicked1") === barilobj.name) {
+function checkandSet(barilobj) {
+    if (baril8Data.value == 4 && baril5Data.value == 4) {
+        alert("bravo")
+    }
+    if (!localStorage.getItem("clicked2") && localStorage.getItem("clicked1") === barilobj.name) {
         localStorage.clear()
         return
-      }
-      if (!localStorage.getItem("clicked1") && !localStorage.getItem("clicked2")) {
+    }
+    if (!localStorage.getItem("clicked1") && !localStorage.getItem("clicked2")) {
         localStorage.setItem("clicked1", barilobj.name)
         localStorage.setItem("valueofclicked1", barilobj.value)
         localStorage.setItem("capacityofclicked1", barilobj.capacity)
@@ -53,77 +71,78 @@ function setStorage(e) {
     localStorage.getItem("clicked1") ? localStorage.setItem("clicked2", barilobj.name) : localStorage.setItem("clicked1", barilobj.name)
     localStorage.getItem("valueofclicked1") ? localStorage.setItem("valueofclicked2", barilobj.value) : localStorage.setItem("valueofclicked1", barilobj.value)
     localStorage.getItem("capacityofclicked1") ? localStorage.setItem("capacityofclicked2", barilobj.capacity) : localStorage.setItem("capacityofclicked1", barilobj.capacity)
-  }
-  function calculate(objbaril) {
+}
+function calculate(objbaril) {
+    if (baril8Data.value == 4 && baril5Data.value == 4) {
+        alert("bravo")
+    }
     if (localStorage.getItem("clicked1") && localStorage.getItem("clicked2")) {
-        
-        var newvalue =  parseInt(localStorage.getItem("valueofclicked2")) + parseInt(localStorage.getItem("valueofclicked1"))
-       
-        objbaril.value = newvalue
-        let extra = 0
-        // if (objbaril.capacity ==  objbaril.value) {
-        //     localStorage.clear()
-        //     return
-        // }
-        if (newvalue >= objbaril.capacity) {
-            extra = objbaril.value - objbaril.capacity
-             objbaril.value = objbaril.value - extra
 
-             if (localStorage.getItem("clicked1") === baril8Data.name) {
-                baril8Data.value = baril8Data.value + extra
-                console.log("yeahhhhhhhhhhhhhhhhhh8")
+        var newvalue = parseInt(localStorage.getItem("valueofclicked2")) + parseInt(localStorage.getItem("valueofclicked1"))
+
+        objbaril.value = newvalue
+        document.getElementById("valeur" + objbaril.capacity).innerHTML = `<div>Quantité Actuelle: ${objbaril.value}</div>`
+        let extra = 0
+
+        if (newvalue > objbaril.capacity) {
+            extra = objbaril.value - objbaril.capacity
         
-            } else if (localStorage.getItem("clicked1") === baril5Data.name) {
+            objbaril.value = objbaril.value - extra
+             document.getElementById("valeur" + objbaril.capacity).innerHTML = `<div>Quantité Actuelle: ${objbaril.value}</div>`
+            if (localStorage.getItem("clicked1") === baril8Data.name) {
+                baril8Data.value = baril8Data.value + extra
+                titlebaril8.innerHTML = `<div>Quantité Actuelle: ${baril8Data.value}</div>`
+
+             } else if (localStorage.getItem("clicked1") === baril5Data.name) {
+
                 baril5Data.value = baril5Data.value + extra
-                console.log("yeahhhhhhhhhhhhhhhhhh5")
-          
+                titlebaril5.innerHTML = `<div>Quantité Actuelle: ${baril5Data.value}</div>`
+
             } else if (localStorage.getItem("clicked1") === baril3Data.name) {
+
                 baril3Data.value = baril3Data.value + extra
-                console.log("yeahhhhhhhhhhhhhhhhhh3")
-               
-           
-            } 
-             
-     
+                titlebaril3.innerHTML = `<div>Quantité Actuelle: ${baril3Data.value}</div>`
+            }
+
         }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         if (localStorage.getItem("clicked1") === baril8Data.name) {
-            baril8Data.value = parseInt(localStorage.getItem("valueofclicked1")) - (parseInt(localStorage.getItem("valueofclicked2")) != 0 ? parseInt(localStorage.getItem("valueofclicked2")) : localStorage.getItem("capacityofclicked2") )
-        
-        
+            baril8Data.value = parseInt(localStorage.getItem("valueofclicked1")) - (localStorage.getItem("capacityofclicked2") - parseInt(localStorage.getItem("valueofclicked2")))
+            titlebaril8.innerHTML = `<div>Quantité Actuelle: ${baril8Data.value}</div>`
+            if (baril8Data.value <= 0) {
+                baril8Data.value = 0
+                titlebaril8.innerHTML = `<div>Quantité Actuelle: ${baril8Data.value}</div>`
+
+            }
+
         } else if (localStorage.getItem("clicked1") === baril5Data.name) {
-            baril5Data.value = parseInt(localStorage.getItem("valueofclicked1")) - (parseInt(localStorage.getItem("valueofclicked2")) != 0 ? parseInt(localStorage.getItem("valueofclicked2")) : localStorage.getItem("capacityofclicked2") )
-           
-       
+            baril5Data.value = parseInt(localStorage.getItem("valueofclicked1")) - (localStorage.getItem("capacityofclicked2") - parseInt(localStorage.getItem("valueofclicked2")))
+            titlebaril5.innerHTML = `<div>Quantité Actuelle: ${baril5Data.value}</div>`
+            if (baril5Data.value <= 0) {
+
+                baril5Data.value = 0
+                titlebaril5.innerHTML = `<div>Quantité Actuelle: ${baril5Data.value}</div>`
+            }
+
         } else if (localStorage.getItem("clicked1") === baril3Data.name) {
-            baril3Data.value = parseInt(localStorage.getItem("valueofclicked1")) - (parseInt(localStorage.getItem("valueofclicked2")) != 0 ? parseInt(localStorage.getItem("valueofclicked2")) : localStorage.getItem("capacityofclicked2") )
-       
-        } 
-   
-    console.log("baril8",baril8Data.value,"baril5", baril5Data.value, "baril3", baril3Data.value)
-    localStorage.clear()  
+            baril3Data.value = parseInt(localStorage.getItem("valueofclicked1")) - (localStorage.getItem("capacityofclicked2") - parseInt(localStorage.getItem("valueofclicked2")))
+            titlebaril3.innerHTML = `<div>Quantité Actuelle: ${baril3Data.value}</div>`
+            if (baril3Data.value <= 0) {
+                baril3Data.value = 0
+                titlebaril3.innerHTML = `<div>Quantité Actuelle: ${baril3Data.value}</div>`
+
+            }
+        }
+
+        console.log("baril8", baril8Data.value, "baril5", baril5Data.value, "baril3", baril3Data.value)
+
+        localStorage.clear()
     }
-  
-  }
+
+}
+
+
 
