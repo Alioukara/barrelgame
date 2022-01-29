@@ -1,0 +1,50 @@
+
+    body {
+        margin: auto auto;
+        text-align: center;
+    }
+    .game_container {
+    width: 80%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    grid-row: 1fr;
+    grid-template-areas: 
+    "baril8 baril5 baril3";
+    margin: auto auto;
+
+}
+.baril8 {
+    grid-area: baril8;
+    text-align: center;
+    
+}
+.baril5 {
+    grid-area: baril5;
+    text-align: center;
+}
+.baril3 {
+    grid-area: baril3;
+    text-align: center;
+}
+
+
+#baril8  {
+    width: 100%;
+    height: 100%;
+  
+}
+#baril5 {
+    width: 100%;
+    height: 70%;  
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+#baril3  {
+    width: 100%;
+    height: 50%;    
+}
+
+
+
