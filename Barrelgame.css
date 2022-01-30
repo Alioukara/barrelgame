@@ -23,24 +23,29 @@
 .baril8 {
     grid-area: baril8;
     text-align: center;
+ 
    
 }
 .baril5 {
     grid-area: baril5;
     text-align: center;
     padding-top: 43%;
+ 
 }
 .baril3 {
     grid-area: baril3;
     text-align: center;
     padding-top: 69%;
+ 
 }
 
 
 #baril8  {
     width: 80%;
     height: 70%;
-    /* filter: invert(100%) sepia(99%) saturate(2028%) hue-rotate(359deg) brightness(90%) contrast(102%); */
+    cursor: url("https://img.icons8.com/dusk/64/000000/hand-cursor.png"), auto;
+
+   
 
 }
 #baril5 {
@@ -48,29 +53,40 @@
     height: 60%;  
     padding-bottom: 0px;
     margin-bottom: 0px;
+    cursor: url("https://img.icons8.com/dusk/64/000000/hand-cursor.png"), auto;
+
     
 }
 #baril3  {
     width: 40%;
-    height: 50%;    
+    height: 50%;  
+    cursor: url("https://img.icons8.com/dusk/64/000000/hand-cursor.png"), auto;
 }
 
-h2 {
-  border: solid black 2px;
-  margin-top: 10%;
 
-}
 h3 {
-    padding: 50px;
+    padding-bottom: 50px;
+    padding-top: 0px;
+    margin-top: 0px;
 }
 
 progress {
-    font-size: 28px;
-    color: rgb(53, 212, 212);
+    font-size: 40px;
+    
+    color: rgb(8, 8, 8);
 }
- 
+
 #restart:hover {
     transform: scale(1.2);
+}
+.baril8 h2 {
+    position: absolute;
+  
+ 
+    top: 55%;
+    left: 21%;
+    font-size: 70px;
+    
 }
 
 
