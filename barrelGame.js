@@ -21,6 +21,11 @@ baril8.addEventListener('click', setStorage)
 baril5.addEventListener('click', setStorage)
 baril3.addEventListener('click', setStorage)
 
+
+const btnHelp = document.getElementById("help")
+const btnClose = document.getElementById("close")
+const modal = document.getElementById("infos")
+const gameArea = document.getElementById("gameArea")
 document.getElementById("restart").addEventListener('click', () => {
     localStorage.clear()
     window.location.reload();
@@ -158,3 +163,16 @@ function calculate(objbaril) {
     }
 
 }
+
+
+btnHelp.onclick = function() {
+    modal.style.display = "block";
+    gameArea.style.cssText +=" pointer-events: none;"
+   
+  }
+
+  btnClose.onclick = function() {
+    modal.style.display = "none";
+    gameArea.style.removeProperty("pointer-events")
+   // gameArea.style.removeProperty("opacity")
+    }

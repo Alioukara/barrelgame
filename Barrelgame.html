@@ -1,40 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barrel Game</title>
-  <link rel="stylesheet" href="./Barrelgame.css">
-</head>
-<body>
-<h1>Jeu des barils</h1> 
-<img src="https://img.icons8.com/color/48/000000/restart--v3.png" id="restart"/>
-<div class="game_container">
-    <div class="baril8">
-        <progress value="8" max="8" id="barB8" ></progress>
+    <link rel="stylesheet" href="./Barrelgame.css" />
+  </head>
+  <body>
+    <h1>
+      Jeu des barils <br />
+      <img
+        src="https://img.icons8.com/color/48/000000/restart--v3.png"
+        id="restart"
+      />
+      <img
+        src="https://img.icons8.com/plasticine/48/000000/help.png"
+        id="help"
+      />
+    </h1>
+    <div class="infos" id="infos">
+      <h4>
+        INSCTRUCTIONS
+        <img
+          style="float: right; margin-top: -10px"
+          src="https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/68/000000/external-close-banking-and-finance-kiranshastry-lineal-color-kiranshastry.png"
+          id="close"
+        />
+      </h4>
+      <p>
+        Vous avez trois barils. Le baril de 8L est plein et les deux autres sont
+        vides.
+      </p>
+      <br />
+      <ul>
+        <li>
+          Objectif: Réussir à avoir deux barils avec 4 litres dans chacuns.
+        </li>
+        <br /><br />
+        <li>
+          Appuyez sur un premier baril pour le séléctioner et sur un deuxieme
+          pour verser du vin dedans.
+        </li>
+      </ul>
+    </div>
+    <div class="game_container" id="gameArea">
+      <div class="baril8">
+        <progress value="8" max="8" id="barB8"></progress>
 
         <h3 id="valeur8">Quantité Actuelle: 8L</h3>
-        <img src="wine-barrel8.png" alt="" id="baril8" value="8">
-      
-    </div>
-    <div class="baril5">
-        <progress value="0" max="5" id="barB5" ></progress>
+        <img src="wine-barrel8.png" alt="" id="baril8" value="8" />
+      </div>
+      <div class="baril5">
+        <progress value="0" max="5" id="barB5"></progress>
 
         <h3 id="valeur5">Quantité Actuelle: 0L</h3>
-        <img src="wine-barrel5.png" alt="" id="baril5" value="5">
-    
-    </div>
-    <div class="baril3">
-        <progress value="0" max="3" id="barB3" ></progress>
+        <img src="wine-barrel5.png" alt="" id="baril5" value="5" />
+      </div>
+      <div class="baril3">
+        <progress value="0" max="3" id="barB3"></progress>
         <h3 id="valeur3">Quantité Actuelle: 0L</h3>
-       
-        <img src="wine-barrel3.png" alt="" id="baril3" value="3">
-  
+
+        <img src="wine-barrel3.png" alt="" id="baril3" value="3" />
+      </div>
     </div>
-</div>
 
-
-<script src="./barrelGame.js"></script>
-</body>
+    <script src="./barrelGame.js"></script>
+  </body>
 </html>

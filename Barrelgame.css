@@ -18,6 +18,7 @@
     grid-template-areas: 
     "baril8 baril5 baril3";
     margin: auto auto;
+   
 
 }
 .baril8 {
@@ -79,14 +80,49 @@ progress {
 #restart:hover {
     transform: scale(1.2);
 }
+#help {
+    cursor: help;
+}
+#help:hover {
+    transform: scale(1.2);
+}
 .baril8 h2 {
     position: absolute;
-  
- 
-    top: 55%;
+     top: 55%;
     left: 21%;
     font-size: 70px;
     
 }
+
+.infos {
+    display: block;
+    margin: auto auto;
+    border: solid black 2px;
+    width: auto;
+    height: 50%;
+    font-size: 30px;
+    line-height: 40px;
+    background-color: #e6e600;
+    color: rgb(39, 34, 34);
+    border-radius: 8%;
+    list-style: url("https://img.icons8.com/fluency/28/000000/arrow.png");
+    font-weight: bolder;
+    position: absolute;
+    float: left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    
+}
+
+.infos::-webkit-scrollbar {
+    display: none;
+  }
+
+
+
 
 
