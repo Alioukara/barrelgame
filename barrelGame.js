@@ -26,22 +26,29 @@ const btnHelp = document.getElementById("help")
 const btnClose = document.getElementById("close")
 const modal = document.getElementById("infos")
 const gameArea = document.getElementById("gameArea")
+const bravo = document.getElementById("bravo")
+const closeBravo = document.getElementById("closeBravo")
 document.getElementById("restart").addEventListener('click', () => {
     localStorage.clear()
     window.location.reload();
 })
 
+if(localStorage.getItem("help")) {
+    btnHelp.style.cssText += " animation-play-state:paused;"
+}
+
 function jeugagne() {
 
     if (baril8Data.value == 4 && baril5Data.value == 4) {
+        bravo.style.display = "block";
+        gameArea.style.cssText += " pointer-events: none;"
 
-        alert("bravo, vous avez réussi")
 
     }
 }
 function updateProgressBar(capacity, value) {
     document.getElementById("barB" + capacity).setAttribute("value", value);
- 
+
 }
 
 function setStorage(e) {
@@ -165,14 +172,21 @@ function calculate(objbaril) {
 }
 
 
-btnHelp.onclick = function() {
+btnHelp.onclick = function () {
     modal.style.display = "block";
-    gameArea.style.cssText +=" pointer-events: none;"
-   
-  }
+    gameArea.style.cssText += " pointer-events: none;"
+    btnHelp.style.cssText += " animation-play-state:paused;"
+    localStorage.setItem("help", "clicked")
 
-  btnClose.onclick = function() {
+}
+
+btnClose.onclick = function () {
     modal.style.display = "none";
     gameArea.style.removeProperty("pointer-events")
-   // gameArea.style.removeProperty("opacity")
-    }
+
+
+}
+
+closeBravo.onclick = function () {
+    bravo.style.display = "none";
+}

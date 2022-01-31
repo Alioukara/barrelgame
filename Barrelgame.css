@@ -80,8 +80,18 @@ progress {
 #restart:hover {
     transform: scale(1.2);
 }
+
+@keyframes helpanim {
+    from {transform: scale(1);}
+    to {transform: scale(2);}
+  }
 #help {
     cursor: help;
+    animation-name: helpanim;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+   
 }
 #help:hover {
     transform: scale(1.2);
@@ -95,7 +105,7 @@ progress {
 }
 
 .infos {
-    display: block;
+    display: none;
     margin: auto auto;
     border: solid black 2px;
     width: auto;
@@ -117,6 +127,23 @@ progress {
     scrollbar-width: none;  /* Firefox */
     
 }
+.bravo{
+    display: none;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    float: left;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("./BRAVO.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    filter: drop-shadow(0 0 3rem rgb(12, 12, 1000))
+    
+}
+
 
 .infos::-webkit-scrollbar {
     display: none;
