@@ -82,9 +82,7 @@ function deleteScale() {
 }
 
 function checkandSet(barilobj) {
-    if (baril8Data.value == 4 && baril5Data.value == 4) {
-        alert("bravo")
-    }
+
     if (!localStorage.getItem("clicked2") && localStorage.getItem("clicked1") === barilobj.name) {
         deleteScale()
         localStorage.clear()
